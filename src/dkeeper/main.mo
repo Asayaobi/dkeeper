@@ -1,4 +1,5 @@
 import List "mo:base/List";
+import Debug "mo:base/Debug";
 
 actor {
   public type Note = {
@@ -14,5 +15,6 @@ actor {
 
     //func push<T>(x : T, l : List<T>) : List<T>
     notes:= List.push(newNote, notes);
+    Debug.print(debug_show (notes));
   }
 }
