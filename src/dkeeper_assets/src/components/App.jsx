@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
-import Header from "./Header";
-import Footer from "./Footer";
-import Note from "./Note";
-import CreateArea from "./CreateArea";
-import {dkeeper} from "../../../declarations/dkeeper";
+import React, { useEffect, useState } from "react"
+import Header from "./Header"
+import Footer from "./Footer"
+import Note from "./Note"
+import CreateArea from "./CreateArea"
+import {dkeeper} from "../../../declarations/dkeeper"
 
 function App() {
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState([])
 
   function addNote(newNote) {
     setNotes(prevNotes => {
       dkeeper.createNote(newNote.title, newNote.content)
-      return [...prevNotes, newNote];
+      return [newNote, ...prevNotes]
     });
   }
 
@@ -31,8 +31,8 @@ function App() {
     setNotes(prevNotes => {
       return prevNotes.filter((noteItem, index) => {
         return index !== id;
-      });
-    });
+      })
+    })
   }
 
   return (
@@ -52,7 +52,7 @@ function App() {
       })}
       <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
