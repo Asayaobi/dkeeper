@@ -17,5 +17,10 @@ actor DKeeper {
     //func push<T>(x : T, l : List<T>) : List<T>
     notes:= List.push(newNote, notes);
     Debug.print(debug_show(notes));
-  }
+  };
+
+  //func toArray<T>(xs : List<T>) : [T]
+  public query func readNotes(): async [Note] {
+    return List.toArray(notes);
+  };
 }
